@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export interface PodcastCardProps {
   id: string;
@@ -9,10 +10,10 @@ export interface PodcastCardProps {
 
 function PodcastCard(props: PodcastCardProps) {
   const { id, thumbnail, title, author } = props;
-  const podcastUrl = `/episode/${id}`;
+  const podcastUrl = `/podcast/${id}`;
 
   return (
-    <a href={podcastUrl}>
+    <Link to={podcastUrl}>
       <figure
         className="p-3 bg-white border border-gray-400 box-shadow 
                     flex flex-col justify-center items-center shadow"
@@ -29,7 +30,7 @@ function PodcastCard(props: PodcastCardProps) {
         </figcaption>
         <p className="text-gray-600">Author: {author}</p>
       </figure>
-    </a>
+    </Link>
   );
 }
 
