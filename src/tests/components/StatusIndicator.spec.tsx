@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { StatusIndicator } from "./StatusIndicator";
+import { StatusIndicator } from "../../components/StatusIndicator";
 
 it("renders when loading is true", () => {
   render(<StatusIndicator loading={true} />);
