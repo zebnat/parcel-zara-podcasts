@@ -1,6 +1,8 @@
 import React from "react";
 
 import { StatusIndicator } from "./components/StatusIndicator";
+import { PodcastCard } from "./components/PodcastCard";
+import { PodcastCardCollection } from "./components/PodcastCardCollection";
 
 function App() {
   return (
@@ -13,118 +15,15 @@ function App() {
           <StatusIndicator loading={true} />
         </header>
         <main className="my-10 grow">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ante
-            iaculis, euismod leo at, congue mi. Fusce ut lorem rutrum, placerat
-            ligula nec, tempus tellus. Donec fermentum sem sit amet ante cursus,
-            vitae scelerisque elit dictum. Suspendisse lectus nibh, eleifend
-            ultrices molestie at, mollis ullamcorper turpis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse sem lectus,
-            egestas ut lectus sit amet, convallis feugiat leo. Sed luctus
-            iaculis lorem et interdum. Nam ac lobortis justo. Aliquam vestibulum
-            purus vitae lacus condimentum congue. Ut tincidunt tempus euismod.
-            Aliquam felis enim, luctus eu pharetra elementum, rutrum a justo.
-            Nunc pulvinar purus luctus tellus blandit, non blandit dui
-            fermentum. Proin non suscipit felis. Ut at nibh pharetra,
-            sollicitudin quam eget, maximus ex. Praesent laoreet pretium leo,
-            vel bibendum eros euismod accumsan.
-          </p>
+          <PodcastCardCollection
+            items={Array(5).fill({
+              id: "423234324",
+              name: "Blabla",
+              thumbnailUrl:
+                "https://is2-ssl.mzstatic.com/image/thumb/Podcasts125/v4/7b/cf/f6/7bcff6bb-5f99-6c2f-c6c5-3a9799f3df21/mza_8544742664200824246.jpg/170x170bb.png",
+              author: "Jordi",
+            })}
+          />
         </main>
         <footer>By Daniel DR</footer>
       </div>
