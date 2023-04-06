@@ -16,7 +16,7 @@ function PodcastCard(props: PodcastCardProps) {
     <Link to={podcastUrl}>
       <figure
         className="p-3 bg-white border border-gray-400 box-shadow 
-                    flex flex-col justify-center items-center shadow"
+                    flex flex-col justify-center items-center shadow-[-1px_3px_3px_0px_rgba(0,0,0,0.3)]"
       >
         <img
           className="rounded-full"
