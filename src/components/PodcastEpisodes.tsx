@@ -20,7 +20,7 @@ export function PodcastEpisodes(props: PodcastEpisodesProps) {
 
   const trClassNames = `border border-y-0`;
   return (
-    <div className="grow">
+    <>
       <div className="p-2 mb-4 box-shadow shadow-[0px_3px_6px_2px_rgba(0,0,0,0.2)] font-bold ">
         Episodes: {items.length}
       </div>
@@ -57,6 +57,6 @@ export function PodcastEpisodes(props: PodcastEpisodesProps) {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 }
