@@ -1,7 +1,7 @@
 export function fetchWithRetry(
   url: RequestInfo | URL,
   options: RequestInit = {},
-  retries = 3,
+  retries = 6,
   delay = 1000
 ): Promise<Response> {
   return new Promise(async (resolve, reject) => {
