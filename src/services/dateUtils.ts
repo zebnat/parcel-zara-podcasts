@@ -12,3 +12,12 @@ export function millisecondsToHourMinute(milliseconds: number) {
 
   return `${hoursStr}:${minutesStr}`;
 }
+
+export function formatDate(isoDate: string) {
+  const date = new Date(isoDate);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
+}
