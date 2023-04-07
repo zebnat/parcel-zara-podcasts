@@ -15,7 +15,7 @@ export function PodcastPresentation(props: PodcastPresentationProps) {
   return (
     <Link
       to={`/podcast/${id}`}
-      className="rounded-sm box-shadow shadow-[-1px_3px_3px_0px_rgba(0,0,0,0.3)]
+      className="rounded-sm box-shadow shadow-[0px_3px_6px_2px_rgba(0,0,0,0.2)]
     w-full sm:w-1/3 p-4 flex flex-col gap-6 justify-center"
     >
       <img
@@ -25,7 +25,7 @@ export function PodcastPresentation(props: PodcastPresentationProps) {
         width="170"
         height="170"
       />
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 py-4 border-y-2">
         <span className="capitalize font-bold text-xl text-left">{name}</span>
         <span className="capitalize italic text-gray-500 text-lg text-left">
           By {author}
