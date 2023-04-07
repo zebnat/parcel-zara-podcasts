@@ -34,7 +34,10 @@ export function PodcastPresentation(props: PodcastPresentationProps) {
 
       <div className="flex flex-col">
         <span className="font-bold">Description:</span>
-        <p className="italic">{description}</p>
+        <p
+          className="italic"
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></p>
       </div>
     </Link>
   );
