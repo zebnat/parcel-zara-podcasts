@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, PodcastDetails, RouteError } from "./components/pages";
+import { DevNotes } from "./components/pages/DevNotes";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/podcast/:podcastId/episode/:episodeId",
     element: <PodcastDetails />,
+  },
+  {
+    path: "/devnotes",
+    element: <DevNotes />,
   },
 ]);
 
