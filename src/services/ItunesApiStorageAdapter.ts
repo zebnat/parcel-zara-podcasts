@@ -23,7 +23,17 @@ export class ItunesApiStorageAdapter implements ItunesRepository {
     return podcasts;
   }
   async getById(id: string): Promise<Podcast> {
-    throw new Error("Method not implemented.");
+    const getKey = `v3_repo_getById:${id}`;
+    const value: unknown | null = await this._getItem(getKey);
+
+    if (null !== value) {
+      return value as Podcast;
+    }
+
+    const podcast = await this.repository.getById(id);
+    await this._setItem(getKey, podcast, 1000 * 60 * 60 * 24); // 1 day cache
+
+    return podcast;
   }
 
   private async _getItem(key: string): Promise<unknown> {
