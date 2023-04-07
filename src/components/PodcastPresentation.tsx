@@ -16,7 +16,7 @@ export function PodcastPresentation(props: PodcastPresentationProps) {
     <Link
       to={`/podcast/${id}`}
       className="rounded-sm box-shadow shadow-[0px_3px_6px_2px_rgba(0,0,0,0.2)]
-    w-full sm:w-1/3 p-4 flex flex-col gap-6 justify-center"
+    w-full md:w-1/3 p-4 flex flex-col gap-6 justify-center"
     >
       <img
         className="rounded-md m-auto"
