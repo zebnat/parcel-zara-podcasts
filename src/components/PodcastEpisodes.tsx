@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PodcastEpisode } from "../domain/PodcastEpisode";
-import { millisecondsToHourMinute } from "../services/dateUtils";
+import { formatDate, millisecondsToHourMinute } from "../services/dateUtils";
 
 interface PodcastEpisodesProps {
   podcastId: string;
@@ -45,7 +45,7 @@ export function PodcastEpisodes(props: PodcastEpisodesProps) {
                         {ep.name}
                       </Link>
                     </td>
-                    <td>{ep.date}</td>
+                    <td>{formatDate(ep.date)}</td>
                     <td>{millisecondsToHourMinute(parseInt(ep.duration))}</td>
                   </tr>
                 ))}
