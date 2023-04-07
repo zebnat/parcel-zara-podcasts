@@ -2,7 +2,7 @@ export interface PodcastEpisode {
   id: string;
   name: string;
   description: string;
-  date: Date;
+  date: string;
   duration: string;
   episodeUrl: string;
 }
