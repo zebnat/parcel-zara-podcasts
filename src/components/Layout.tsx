@@ -17,7 +17,14 @@ export function Layout(props: LayoutProps) {
           <StatusIndicator loading={true} />
         </header>
         <main className="my-10 grow">{props.children}</main>
-        <footer>By Daniel DR</footer>
+        <footer>
+          <Link
+            to="/devnotes"
+            className="font-bold text-blue-500 animate animate-pulse"
+          >
+            Notas del desarrollador
+          </Link>
+        </footer>
       </div>
     </div>
   );

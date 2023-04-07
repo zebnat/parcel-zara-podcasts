@@ -21,27 +21,6 @@ export function PodcastDetails() {
               (Podcast details, Episodes api and RSS Xml Feed)
             </span>
           </p>
-          <p className="text-2xl underline text-red-500">
-            Información para quien corresponda:
-          </p>
-          <div className="text-sm flex flex-col gap-4">
-            <p>
-              El servicio CrossOrigin está muy pero muy saturado, lo que hace
-              que las peticiones vayan demasiado lentas.
-            </p>
-            <p>Por cada petición fallida, reintentará varias veces.</p>
-            <p>
-              La Api de detalles del Podcast no contenía toda la información
-              necesaria. Debido a eso se pide también el Feed RSS+XML y se
-              realiza dom traversing, pero no es consistente.
-            </p>
-            <p>
-              La petición al rss+xml se realiza SIN CrossOrigin (debido a la
-              lentitud y tamaño considerable). A veces, puede dar error cors y
-              no estar disponible la información. Probar con otros Podcast desde
-              la colección.
-            </p>
-          </div>
         </div>
       ) : (
         <div className="flex flex-wrap md:flex-nowrap	gap-20">
