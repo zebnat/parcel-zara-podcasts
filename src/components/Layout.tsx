@@ -11,7 +11,7 @@ export function Layout(props: LayoutProps) {
     <div className="bg-gray-100 text-black px-10 py-5 min-h-screen">
       <div className="w-full xl:w-3/4 m-auto flex flex-col">
         <header className="flex justify-between border-b-2 pb-2">
-          <Link to="/" className="text-blue-500 text-2xl font-bold">
+          <Link to="/" className="text-blue-500 saturate-50 text-2xl font-bold">
             Podcaster
           </Link>
           <StatusIndicator loading={true} />
