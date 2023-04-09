@@ -3,8 +3,10 @@ import { Podcast } from "../../domain/Podcast";
 import { ItunesApi, ItunesRepositoryImpl } from "../../services/Itunesapi";
 import { ItunesApiStorageAdapter } from "../../services/ItunesApiStorageAdapter";
 import { ItunesRepository } from "../../domain/ItunesRepository";
+import { useLoadingContext } from "./useLoadingContext";
 
 export function useTopPodcasts(): Podcast[] {
+  const { setLoading } = useLoadingContext();
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);
 
   const repo: ItunesRepository = new ItunesApiStorageAdapter(
@@ -16,6 +18,7 @@ export function useTopPodcasts(): Podcast[] {
       try {
         const podcasts = await repo.getAll();
         setPodcasts(podcasts);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }

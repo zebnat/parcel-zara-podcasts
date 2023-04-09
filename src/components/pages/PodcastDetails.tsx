@@ -12,7 +12,7 @@ export function PodcastDetails() {
   const podcastData = usePodcastData(podcastId as string);
 
   return (
-    <Layout>
+    <>
       {null === podcastData ? (
         <div className="w-1/2 m-auto text-gray-500 text-center flex flex-col gap-10">
           <p className="font-bold text-xl mt-20">Loading Podcast details...</p>
@@ -54,6 +54,6 @@ export function PodcastDetails() {
           </div>
         </div>
       )}
-    </Layout>
+    </>
   );
 }
