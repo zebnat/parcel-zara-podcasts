@@ -1,4 +1,5 @@
 import React from "react";
+import { useLoadingContext } from "../application/hooks/useLoadingContext";
 
 interface PodcastEpisodeProps {
   name: string;
@@ -8,6 +9,9 @@ interface PodcastEpisodeProps {
 
 export function PodcastEpisode(props: PodcastEpisodeProps) {
   const { name, descriptionHTML, playerUrl } = props;
+
+  const { setLoading } = useLoadingContext();
+  setLoading(false);
 
   return (
     <div className="box-shadow shadow-[0px_3px_6px_2px_rgba(0,0,0,0.2)] flex flex-col gap-3 p-4">

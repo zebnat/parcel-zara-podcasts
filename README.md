@@ -22,7 +22,7 @@ Three tags releases:
 
 1. `v1.0.0` Functional project with basic layout
 2. `v1.1.0` Functional visual app with hardcoded data
-3. `v1.2.0-rc` Everything is functional with real api data
+3. `v1.2.1-rc` Everything is functional with real api data
 
 ## Project Setup and technologies involved
 

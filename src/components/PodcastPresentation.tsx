@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useLoadingContext } from "../application/hooks/useLoadingContext";
 
 interface PodcastPresentationProps {
   id: string;
@@ -12,9 +11,6 @@ interface PodcastPresentationProps {
 
 export function PodcastPresentation(props: PodcastPresentationProps) {
   const { name, author, thumbnailUrl, description, id } = props;
-
-  const { setLoading } = useLoadingContext();
-  setLoading(false);
 
   return (
     <Link
