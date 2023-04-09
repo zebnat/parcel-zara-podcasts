@@ -15,11 +15,9 @@ export function PodcastDetails() {
     <Layout>
       {null === podcastData ? (
         <div className="w-1/2 m-auto text-gray-500 text-center flex flex-col gap-10">
-          <p className="font-bold text-xl mt-20">
-            Loading Podcast details...{" "}
-            <span className="text-xs">
-              (Podcast details, Episodes api and RSS Xml Feed)
-            </span>
+          <p className="font-bold text-xl mt-20">Loading Podcast details...</p>
+          <p className="text-xs">
+            (Podcast details, Episodes api and RSS Xml Feed)
           </p>
         </div>
       ) : (
