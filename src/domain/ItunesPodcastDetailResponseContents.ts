@@ -5,5 +5,6 @@ interface ItunesPodcastDetailResponseContents {
     artistName: string;
     feedUrl: string;
     releaseDate: string;
+    artworkUrl600: string;
   }[];
 }

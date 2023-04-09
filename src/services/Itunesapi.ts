@@ -61,67 +61,71 @@ export class ItunesApi {
       data.contents
     );
 
-    // try with feed xml
-    const feedResponse = await fetchWithRetry(contents.results[0].feedUrl);
-
-    if (!feedResponse.ok)
-      throw new Error("fetchPodcastdata feedResponse not ok.");
-
-    const parser = new DOMParser();
-    const xmlString = await feedResponse.text(); // get stream
-    const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-
-    // parse data from feed
     let podcast: Podcast = {
       id: id,
-      name: "NODATA",
-      author: "NODATA",
-      description: "NODATA",
-      thumbnailUrl: "",
+      name: contents.results[0].collectionName,
+      author: contents.results[0].artistName,
+      description:
+        contents.results[0].collectionName +
+        ` (NODATA: No description found, xml feed failed)`,
+      thumbnailUrl: contents.results[0].artworkUrl600,
       episodes: undefined,
     };
 
+    // try with feed xml
     try {
+      const feedResponse = await fetchWithRetry(contents.results[0].feedUrl);
+
+      if (!feedResponse.ok)
+        throw new Error("fetchPodcastdata feedResponse not ok.");
+
+      const parser = new DOMParser();
+      const xmlString = await feedResponse.text(); // get stream
+      const xmlDoc = parser.parseFromString(xmlString, "text/xml");
       let podcastFromXML = this._parsePodcastFromXML(id, xmlDoc);
-      podcast.name = podcastFromXML.name || "";
       podcast.description = podcastFromXML.description || "";
-      podcast.author = podcastFromXML.author || "";
-      podcast.thumbnailUrl = podcastFromXML.thumbnailUrl || "";
     } catch (e) {
       console.error("Issue parsing XML feed (wrong format): Expect NODATA");
       console.error(e);
     }
 
     // parse episodes from api
-    const episodesResponse = await fetchWithRetry(
-      `https://api.allorigins.win/get?url=${encodeURIComponent(
-        `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=5`
-      )}`
-    );
+    try {
+      const episodesResponse = await fetchWithRetry(
+        `https://api.allorigins.win/get?url=${encodeURIComponent(
+          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=5`
+        )}`
+      );
 
-    if (!episodesResponse.ok) throw new Error("episodesResponse not ok.");
-    const episodeData: ItunesPodcastDetailResponse =
-      await episodesResponse.json();
-    const episodeContents: ItunesPodcastEpisodeResponse = JSON.parse(
-      episodeData.contents
-    );
+      if (!episodesResponse.ok) throw new Error("episodesResponse not ok.");
 
-    episodeContents.results.shift(); // drop first result (invalid api)
+      const episodeData: ItunesPodcastDetailResponse =
+        await episodesResponse.json();
+      const episodeContents: ItunesPodcastEpisodeResponse = JSON.parse(
+        episodeData.contents
+      );
 
-    console.log(episodeContents.results);
+      episodeContents.results.shift(); // drop first result (invalid api)
 
-    const episodes: PodcastEpisode[] = episodeContents.results.map((e) => {
-      return {
-        id: e.trackId.toString(),
-        name: e.trackName,
-        description: e.description,
-        episodeUrl: e.previewUrl,
-        date: e.releaseDate,
-        duration: e.trackTimeMillis.toString(),
-      };
-    });
+      console.log(episodeContents.results);
 
-    podcast.episodes = episodes;
+      const episodes: PodcastEpisode[] = episodeContents.results.map((e) => {
+        return {
+          id: e.trackId.toString(),
+          name: e.trackName,
+          description: e.description,
+          episodeUrl: e.previewUrl,
+          date: e.releaseDate,
+          duration: e.trackTimeMillis.toString(),
+        };
+      });
+
+      podcast.episodes = episodes;
+    } catch (e) {
+      console.error("Issue width episodes API request. Expect NODATA");
+      console.error(e);
+    }
+
     return podcast;
   }
 
@@ -129,21 +133,15 @@ export class ItunesApi {
     const parser = new DOMParser();
 
     // find stuff by dom trasverse
-    const podcastTitle = xml.getElementsByTagName("title")[0]
-      .textContent as string;
     const podcastDescription = xml.getElementsByTagName("description")[0]
-      .textContent as string;
-    const podcastAuthor = xml.getElementsByTagName("itunes:author")[0]
-      .textContent as string;
-    const podcastImage = xml.querySelectorAll("image>url")[0]
       .textContent as string;
 
     const podcast: Podcast = {
       id: id,
-      name: podcastTitle,
+      name: "",
       description: podcastDescription,
-      author: podcastAuthor,
-      thumbnailUrl: podcastImage,
+      author: "",
+      thumbnailUrl: "",
       episodes: undefined,
     };
 
