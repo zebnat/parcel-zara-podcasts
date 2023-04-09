@@ -3,24 +3,41 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, PodcastDetails, RouteError } from "./components/pages";
 import { DevNotes } from "./components/pages/DevNotes";
+import { Layout } from "./components/Layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
     errorElement: <RouteError />,
   },
   {
     path: "/podcast/:podcastId",
-    element: <PodcastDetails />,
+    element: (
+      <Layout>
+        <PodcastDetails />
+      </Layout>
+    ),
   },
   {
     path: "/podcast/:podcastId/episode/:episodeId",
-    element: <PodcastDetails />,
+    element: (
+      <Layout>
+        <PodcastDetails />
+      </Layout>
+    ),
   },
   {
     path: "/devnotes",
-    element: <DevNotes />,
+    element: (
+      <Layout>
+        <DevNotes />
+      </Layout>
+    ),
   },
 ]);
 
